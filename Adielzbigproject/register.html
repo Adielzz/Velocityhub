@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdielzVelocityHub Register</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/loginstyle.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="form-container">
+        <div class="form-body">
+          <div class="logo">
+            <img src="img/logo.png" alt="AdielzVelocityHub" />
+          </div>
+
+          <form
+            id="registerForm"
+            action="backend/register.php"
+            method="POST"
+            class="the-form"
+          >
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Masukkan email Anda"
+              required
+            />
+
+            <label for="password">Kata Sandi</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Masukkan kata sandi Anda"
+              required
+            />
+
+            <label for="confirm_password">Konfirmasi Kata Sandi</label>
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              placeholder="Masukkan kembali kata sandi Anda"
+              required
+            />
+
+            <label for="accept_terms">
+              <input type="checkbox" id="accept_terms" required />
+              Klik Tanda Ceklis Jika Anda Sudah Mandi!!
+            </label>
+
+            <button type="submit" class="registerbtn">Register</button>
+          </form>
+          <div id="error-message" style="color: red; display: none">
+            Kata sandi tidak cocok.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (event) {
+          var password = document.getElementById("password").value;
+          var confirmPassword =
+            document.getElementById("confirm_password").value;
+          var acceptTerms = document.getElementById("accept_terms").checked;
+
+          if (password !== confirmPassword) {
+            document.getElementById("error-message").style.display = "block";
+            event.preventDefault();
+          }
+
+          if (!acceptTerms) {
+            alert("You must accept the terms and conditions.");
+            event.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>

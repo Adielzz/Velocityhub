@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdielzHerex Checkout</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SB-Mid-client-wlwVrvjFxwh4n5Cl"
+    ></script>
+    <script>
+      function checkout(price, name) {
+        $.ajax({
+          url: "create_snap_token.php",
+          method: "POST",
+          data: {
+            price: price,
+            name: name,
+          },
+          success: function (data) {
+            snap.pay(data.snapToken, {
+              onSuccess: function (result) {
+                alert("Payment Success!");
+              },
+              onPending: function (result) {
+                alert("Payment Pending!");
+              },
+              onError: function (result) {
+                alert("Payment Error!");
+              },
+            });
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center">Checkout</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="img/Product/Vario.jpg"
+              class="card-img-top"
+              alt="Vario 125"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Vario 125</h5>
+              <p class="card-text">Price: IDR 20,000,000</p>
+              <button
+                onclick="checkout(20000000, 'Vario 125')"
+                class="btn btn-primary"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="img/Product/Beatkarbu.jpg"
+              class="card-img-top"
+              alt="Beat Karbu"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Beat Karbu</h5>
+              <p class="card-text">Price: IDR 30,000,000</p>
+              <button
+                onclick="checkout(30000000, 'Beat Karbu')"
+                class="btn btn-primary"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img
+              src="img/Product/caferacer.jpg"
+              class="card-img-top"
+              alt="CB Icikiwir"
+            />
+            <div class="card-body">
+              <h5 class="card-title">CB Icikiwir</h5>
+              <p class="card-text">Price: IDR 25,000,000</p>
+              <button
+                onclick="checkout(25000000, 'CB Icikiwir')"
+                class="btn btn-primary"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdielzVelocityHub Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/loginstyle.css" />
+
+    <style>
+      .srouce {
+        text-align: center;
+        color: #ffffff;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="form-container">
+        <div class="srouce"></div>
+
+        <div class="form-body">
+          <div class="logo">
+            <img src="img/logo.png" alt="AdielzVelocityHub" />
+          </div>
+          <div class="social-login">
+            <ul>
+              <li class="google"><a href="Tidak Valid">Google</a></li>
+              <li class="fb"><a href="Tidak Valid">Facebook</a></li>
+            </ul>
+          </div>
+          <!-- SOCIAL LOGIN -->
+
+          <div class="_or">or</div>
+
+          <form action="backend/login_page.php" method="POST" class="the-form">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+
+            <button type="submit" class="loginbtn">Log In</button>
+          </form>
+        </div>
+        <!-- FORM BODY-->
+
+        <div class="form-footer">
+          <div>
+            <span>Belum punya akun?</span> <a href="register.html">Buat Akun</a>
+          </div>
+        </div>
+        <!-- FORM FOOTER -->
+        <!-- FORM FOOTER -->
+        <div class="form-footer"></div>
+        <!-- FORM FOOTER -->
+      </div>
+      <!-- FORM CONTAINER -->
+    </div>
+  </body>
+</html>
